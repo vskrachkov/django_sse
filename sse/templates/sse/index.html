@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SSE</title>
+</head>
+<body>
+
+<ul id="events-list">
+
+</ul>
+
+<script>
+    var evtSource = new EventSource('/sse/events/');
+
+    evtSource.addEventListener("test", function(e) {
+        var data = JSON.parse(e.data);
+        console.log(e);
+        var newElement = document.createElement("li");
+        console.log(data);
+        newElement.innerHTML = "ping at " + data.time;
+        var eventList = document.getElementById('events-list');
+        eventList.appendChild(newElement)
+    }, false);
+
+</script>
+
+</body>
+</html>
