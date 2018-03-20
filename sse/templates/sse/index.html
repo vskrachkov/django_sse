@@ -18,7 +18,7 @@
         console.log(e);
         var newElement = document.createElement("li");
         console.log(data);
-        newElement.innerHTML = "ping at " + data.time;
+        newElement.innerHTML = "ping at " + data.time + " msg: " + data.message;
         var eventList = document.getElementById('events-list');
         eventList.appendChild(newElement)
     }, false);
